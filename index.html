@@ -6,13 +6,28 @@
   <script id="challenge">
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
+      if (profile.active === false) {
+        profile.active = true;
+        delete profile.reason;
+    } else if (profile.active === true && reason) {
+        profile.active = false;
+        profile.reason = reason;
+    } else {
+        return "confirm status manually";
+    }
 
+    return profile;
     }
 
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
-
+    if (x < 1 || x > 3 || y < 1 || y > 3) {
+        return "invalid coordinates";
+    } for (let c in grid){
+      if (){}
     }
+}
+
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
