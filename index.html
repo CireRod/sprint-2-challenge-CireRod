@@ -33,7 +33,21 @@
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
-
+      let newObj = {}
+      for (let prop in obj){
+        let values = obj[prop]
+        if (prop.length > 9){
+          return "shorten all prop names to 9 chars or less"
+        } if (values === 0){
+          newObj[prop] = false;
+        } else if (values === 1){
+          newObj[prop] = true;
+        } else if (values === null){
+          continue;
+        } else {
+          newObj[prop] = values
+        }
+      } return newObj
     }
 
     // 👉 CHALLENGE 4
