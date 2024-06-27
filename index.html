@@ -21,13 +21,19 @@
 
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
-    if (x < 1 || x > 3 || y < 1 || y > 3) {
+      x -= 1;
+      y -= 1;
+    if (x < 0 || x >= 3 || y < 0 || y >= 3) {
         return "invalid coordinates";
-    } for (let c in grid){
-     
-       
-      
     }
+      let cell = grid[y][x];
+
+      if (cell === "🟥") {
+        return "🟥 💀";
+    } else if (cell === "🟦") {
+        return "🟦 🥳";
+    }  
+    
 }
 
 
@@ -52,16 +58,36 @@
 
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
+      let result4 = []
+      let splitText = text.split(' ')
 
+      for (let i in splitText){
+        let words = splitText[i]
+
+        if (forbidden.includes(words)){
+          words = 'x'.repeat(words.length)
+         result4.push(words)
+          }
+          
+         else {
+          result4.push(words)
+        }
+      } return result4.join(' ')
     }
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
+      let firstThree = num.slice(0,3);
+      let middleThree = num.slice(3, 6);
+      let lastFour = num.slice(6, 10);
 
+      let normal = `(${firstThree}) ${middleThree}-${lastFour}`
+      return normal
     }
 
     // 👉 CHALLENGE 6 (bonus, NOT graded)
     function diceRolls() {
+      
 
     }
 
